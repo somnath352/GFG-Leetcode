@@ -1,16 +1,11 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        set<int> s;
-        for(int it : nums) {
-            s.insert(it);
+        int countDuplicate = 0, n = nums.size();
+        for(int i = 1;i<n;i++) {
+            if(nums[i] == nums[i-1]) countDuplicate++;
+            else nums[i-countDuplicate] = nums[i];
         }
-        vector<int> ans;
-        for(auto it : s) {
-            ans.push_back(it);
-        }
-        nums = ans;
-        // for(auto it : ans) cout << it << " ";
-        return nums.size();
+        return n - countDuplicate;
     }
 };
