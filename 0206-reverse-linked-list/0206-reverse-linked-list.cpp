@@ -9,15 +9,15 @@
  * };
  */
 class Solution {
+private:
+    ListNode *reverseLinkedList(ListNode *head, ListNode *prev) {
+        if(head == NULL) return prev;
+        ListNode *nextNode = head->next;
+        head->next = prev; // NULL
+        return reverseLinkedList(nextNode, head);
+    }
 public:
     ListNode* reverseList(ListNode* head) {
-        ListNode *prev = NULL;
-        while(head) {
-            ListNode *nextNode = head->next;
-            head->next = prev;
-            prev = head;
-            head = nextNode;
-        }
-        return prev;
+        return reverseLinkedList(head, NULL);
     }
 };
