@@ -29,7 +29,7 @@ class GFG {
 
 class Solution {
     // 1 1 1 0 1
-    int giveMissNum(int arr[], int n) {
+    private int giveMissNum(int arr[], int n) {
         int vis[] = new int[n];
         for(int i = 0;i<arr.length;i++) {
             vis[arr[i]-1] = 1;
